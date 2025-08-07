@@ -773,9 +773,41 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    /* Better mobile margins and spacing */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    /* Testing platform mobile layout */
+    .testing-platform-mobile {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .testing-platform-mobile > div:first-child {
+        flex: none !important;
+    }
+    
+    .testing-platform-mobile > div:last-child {
+        flex: none !important;
+        max-width: 100% !important;
+    }
+    
+    .testing-platform-mobile img {
+        height: 600px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
-        padding: 0 0.5rem;
+        padding: 0 1rem;
     }
     
     .section {
@@ -792,6 +824,7 @@ body {
     
     .section-title {
         font-size: 2rem;
+        margin-bottom: 2rem;
     }
     
     .overview-card, .apply-form, .contact-card, .timeline-card {
@@ -806,5 +839,21 @@ body {
     .btn-primary, .btn-secondary {
         width: 100%;
         text-align: center;
+    }
+    
+    /* Apply card mobile improvements */
+    .apply-card {
+        margin: 0 0.5rem !important;
+        padding: 2rem !important;
+    }
+    
+    /* Hardware and RL content mobile */
+    .hardware-content, .rl-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .hardware-visual, .rl-visual {
+        order: -1;
     }
 }
