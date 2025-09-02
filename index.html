@@ -31,14 +31,14 @@
     <section id="hardware" class="section">
         <div class="container">
             <h2 class="section-title">Hardware Development</h2>
-            <div class="hardware-content">
-                <div class="hardware-text">
+            <div class="hardware-content" style="display: block;">
+                <div class="hardware-text" style="width: 100%; margin-bottom: 3rem;">
                     <p class="section-intro">Our hardware development focuses on creating a custom quadruped robot that combines innovative mechanical design with advanced embedded systems.</p>
                     
                     <div class="hardware-components">
                         <div class="component-item">
                             <h4><i class="fas fa-wrench"></i> Mechanical Design</h4>
-                            <p>Custom chassis, leg mechanisms, and actuator systems optimized for agility and stability</p>
+                            <p>Custom chassis, leg mechanisms, and actuator systems optimized for agility and stability. Our new leg mechanism was designed using <a href="https://cadquery.readthedocs.io/" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">CadQuery</a>, a powerful open-source CAD framework that enables parametric 3D modeling through Python scripting.</p>
                         </div>
                         <div class="component-item">
                             <h4><i class="fas fa-microchip"></i> Embedded Systems</h4>
@@ -46,11 +46,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="hardware-visual">
-                    <div class="hardware-media">
-                        <img src="assets/gifs/quad_leg.gif" alt="Quadruped leg mechanism" class="hardware-image">
+                <div class="hardware-visual" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <div class="hardware-media" style="flex: 1; min-width: 300px; max-width: 500px;">
+                        <img src="assets/images/quad_leg_rig_1.jpg" alt="Quadruped leg mechanism design" class="hardware-image">
                         <div class="hardware-caption">
-                            <p>Custom leg mechanism design</p>
+                            <p>Custom leg mechanism design using <a href="https://cadquery.readthedocs.io/" target="_blank" style="color: var(--primary-color); text-decoration: none;">CadQuery</a></p>
+                        </div>
+                    </div>
+                    <div class="hardware-media" style="flex: 1; min-width: 300px; max-width: 500px;">
+                        <img src="assets/images/quad_leg_rig_2.jpg" alt="Quadruped leg mechanism assembly view" class="hardware-image">
+                        <div class="hardware-caption">
+                            <p>Assembly view of the leg mechanism</p>
                         </div>
                     </div>
                 </div>
@@ -64,9 +70,9 @@
             <div class="rl-content">
                 <div class="rl-visual">
                     <div class="training-media">
-                        <img src="assets/gifs/quad_sim_turning.gif" alt="RL training simulation" class="training-gif">
+                        <img src="assets/gifs/Lite3Getup_rollout.gif" alt="Getup experiment in RL environment" class="training-gif">
                         <div class="training-caption">
-                            <p>RL training in simulation environment</p>
+                            <p>Getup experiment in RL environment</p>
                         </div>
                     </div>
                 </div>
