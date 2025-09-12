@@ -1,59 +1,50 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-menu a');
     const googleFormLink = document.getElementById('googleFormLink');
     const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.backdropFilter = 'blur(20px)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
-    });
+    }
 
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, observerOptions);
+    if (navLinks.length > 0) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
 
-    document.querySelectorAll('section[id]').forEach(section => {
-        observer.observe(section);
-    });
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    }
 
     const animateOnScroll = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
@@ -75,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    galleryItems.forEach(item => {
+    if (galleryItems.length > 0) {
+        galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const mediaSrc = this.getAttribute('data-media');
             const mediaType = this.getAttribute('data-type');
@@ -157,7 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-    });
+        });
+    }
 
     const heroText = document.querySelector('.hero h1');
     if (heroText) {
