@@ -27,6 +27,127 @@
         </div>
     </section>
 
+    <section id="gallery" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Project Gallery</h2>
+            <div class="gallery-intro" style="text-align: center; margin-bottom: 3rem;">
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    Explore our quadruped robot development journey through simulations, hardware prototypes, and real-world demonstrations.
+                </p>
+            </div>
+            
+            <div class="auto-focus-gallery">
+                <!-- Featured Display -->
+                <div class="featured-display">
+                    <div class="featured-media-container">
+                        <img id="featured-media" src="assets/gifs/Lite3Getup_rollout.gif" alt="Featured demo" class="featured-media">
+                        <div class="featured-overlay">
+                            <div class="featured-info">
+                                <h3 id="featured-title">Getup Training Simulation</h3>
+                                <p id="featured-description">Reinforcement learning agent learning to recover from prone position in simulation environment</p>
+                                <span id="featured-category" class="media-category simulation">Simulation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress indicator -->
+                    <div class="gallery-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-counter"><span id="current-index">1</span> / <span id="total-count">12</span></span>
+                    </div>
+                </div>
+                
+                <!-- Thumbnail Grid -->
+                <div class="thumbnail-grid">
+                    <div class="thumbnail-item active" data-media="assets/gifs/Lite3Getup_rollout.gif" data-title="Getup Training Simulation (Lite3)" data-description="Lite3 quadruped getting up in simulation environment using reinforcement learning" data-category="simulation">
+                        <img src="assets/gifs/Lite3Getup_rollout.gif" alt="Getup simulation">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category simulation">Simulation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/mx_quad_jump.gif" data-title="Quad Jump" data-description="Quadruped jumping in Mujoco (unexpected behavior)" data-category="simulation">
+                        <img src="assets/gifs/mx_quad_jump.gif" alt="Quad Jump">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category simulation">Simulation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/mx_quad_standup.gif" data-title="Quad Stand-up" data-description="Quadruped standing up from sitting position in Mujoco (using Ik)" data-category="simulation">
+                        <img src="assets/gifs/mx_quad_standup.gif" alt="Quad Stand-up">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category simulation">Simulation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/mx_quad_twist.gif" data-title="Quad Twist" data-description="Quadruped doing twisting motions in Mujoco (using IK)" data-category="simulation">
+                        <img src="assets/gifs/mx_quad_twist.gif" alt="Quad Twist">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category simulation">Simulation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/quad_deep_robotics_real_joystick.gif" data-title="Deep Robotics Lite3 Control" data-description="Real-world testing with joystick control on physical hardware platform" data-category="real-robot">
+                        <img src="assets/gifs/quad_deep_robotics_real_joystick.gif" alt="Real robot control">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category real-robot">Real Robot</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/quad_leg.gif" data-title="Leg (Older) Mechanism" data-description="3D printed custom leg (Older version) mechanism" data-category="hardware">
+                        <img src="assets/gifs/quad_leg.gif" alt="Leg mechanism">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/quad_leg_new.gif" data-title="New Leg Design" data-description="New leg design with improved kinematics and less weight" data-category="hardware">
+                        <img src="assets/gifs/quad_leg_new.gif" alt="New leg design">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/gifs/quad_sim_turning.gif" data-title="Simulation Turning Behavior (Lite3)" data-description="Lite3 quadruped learning precise turning and directional control in simulation using RL" data-category="simulation">
+                        <img src="assets/gifs/quad_sim_turning.gif" alt="Turning simulation">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category simulation">Simulation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="thumbnail-item" data-media="assets/images/quad_leg.jpeg" data-title="Leg Component Design" data-description="Technical drawing and component breakdown of leg assembly" data-category="hardware">
+                        <img src="assets/images/quad_leg.jpeg" alt="Leg components">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/images/quad_leg_parts.jpg" data-title="Leg Parts Assembly" data-description="Physical components and parts for leg mechanism construction" data-category="hardware">
+                        <img src="assets/images/quad_leg_parts.jpg" alt="Leg parts">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/images/quad_leg_rig_1.jpg" data-title="CAD Leg Assembly View" data-description="3D CAD model showing complete leg mechanism assembly" data-category="hardware">
+                        <img src="assets/images/quad_leg_rig_1.jpg" alt="CAD assembly">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-item" data-media="assets/images/quad_leg_rig_2.jpg" data-title="CAD Leg Detail View" data-description="Detailed view of leg mechanism showing joint configurations" data-category="hardware">
+                        <img src="assets/images/quad_leg_rig_2.jpg" alt="CAD details">
+                        <div class="thumbnail-overlay">
+                            <span class="thumbnail-category hardware">Hardware</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="hardware" class="section">
         <div class="container">

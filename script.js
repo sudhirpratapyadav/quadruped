@@ -213,6 +213,124 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Auto-focus Gallery functionality
+function initGallery() {
+    const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+    const featuredMedia = document.getElementById('featured-media');
+    const featuredTitle = document.getElementById('featured-title');
+    const featuredDescription = document.getElementById('featured-description');
+    const featuredCategory = document.getElementById('featured-category');
+    const currentIndex = document.getElementById('current-index');
+    const totalCount = document.getElementById('total-count');
+    const progressFill = document.querySelector('.progress-fill');
+    
+    if (!thumbnailItems.length || !featuredMedia) return;
+    
+    let currentMediaIndex = 0;
+    let autoRotateInterval;
+    let isHovering = false;
+    
+    // Media data array from thumbnails
+    const mediaData = Array.from(thumbnailItems).map(item => ({
+        src: item.dataset.media,
+        title: item.dataset.title,
+        description: item.dataset.description,
+        category: item.dataset.category
+    }));
+    
+    // Update featured display
+    function updateFeaturedMedia(index) {
+        const media = mediaData[index];
+        
+        // Fade out current image
+        featuredMedia.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Update content
+            featuredMedia.src = media.src;
+            featuredTitle.textContent = media.title;
+            featuredDescription.textContent = media.description;
+            featuredCategory.textContent = media.category.replace('-', ' ');
+            featuredCategory.className = `media-category ${media.category}`;
+            
+            // Update progress and counter
+            currentIndex.textContent = index + 1;
+            totalCount.textContent = mediaData.length;
+            const progressPercent = ((index + 1) / mediaData.length) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            
+            // Update thumbnail active states
+            thumbnailItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            // Fade in new image
+            featuredMedia.style.opacity = '1';
+        }, 300);
+        
+        currentMediaIndex = index;
+    }
+    
+    // Auto-rotate function
+    function startAutoRotate() {
+        if (autoRotateInterval) clearInterval(autoRotateInterval);
+        
+        autoRotateInterval = setInterval(() => {
+            if (!isHovering) {
+                const nextIndex = (currentMediaIndex + 1) % mediaData.length;
+                updateFeaturedMedia(nextIndex);
+            }
+        }, 6000); // 6 seconds per item
+    }
+    
+    // Stop auto-rotate
+    function stopAutoRotate() {
+        if (autoRotateInterval) {
+            clearInterval(autoRotateInterval);
+            autoRotateInterval = null;
+        }
+    }
+    
+    // Thumbnail click handlers
+    thumbnailItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            updateFeaturedMedia(index);
+            stopAutoRotate();
+            setTimeout(startAutoRotate, 3000); // Restart after 3 seconds
+        });
+    });
+    
+    // Pause auto-rotate on gallery hover
+    const gallery = document.querySelector('.auto-focus-gallery');
+    if (gallery) {
+        gallery.addEventListener('mouseenter', () => {
+            isHovering = true;
+        });
+        
+        gallery.addEventListener('mouseleave', () => {
+            isHovering = false;
+        });
+    }
+    
+    // Initialize with first media item
+    updateFeaturedMedia(0);
+    
+    // Start auto-rotation after initial load
+    setTimeout(startAutoRotate, 2000);
+    
+    // Pause/resume on page visibility change
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopAutoRotate();
+        } else {
+            startAutoRotate();
+        }
+    });
+}
+
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
+    
+    // Initialize gallery after page load
+    initGallery();
 });
